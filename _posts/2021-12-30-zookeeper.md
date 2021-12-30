@@ -114,19 +114,23 @@ echo envi | nc xxx.xxx 2181
 4. 自动创建顺序节点  
 5. watch 机制，监听节点变化  
 6. delete 命令只能一层一层删除(新版本通过deleteall命令递归并删除)  
+
 # zookeeper 权限控制 ACL  
+
 ACL(Access Control List, 访问控制表)权限可以针对节点设置相关读写等权限，保障数据安全性。  
 ## ACL 命令行  
 
 * getAcl 命令：获取某个节点的 acl 权限信息  
 * setAcl 命令：设置某个节点的 acl 权限信息  
 * addauth 命令：输入认证授权信息，注册时输入明文密码，加密形式保存  
+  
 ## ACL 构成  
 zookeeper 的 acl 通过[scheme:id:permissions]来构成权限列表。  
 
 * scheme：代表采用的某种权限机制，包括 world、auth、digest、ip、super几种。  
 * id：代表允许访问的用户  
 * permissions：权限组合字符串，由 c(创建)d(删除)r(读)w(写)a(管理权限) 组成。  
+ 
 # zookeeper watcher 事件机制原理剖析  
 zookeeper 的 watcher机制，可以分为四个过程：  
 
@@ -134,6 +138,7 @@ zookeeper 的 watcher机制，可以分为四个过程：
 * 服务端处理 watcher  
 * 服务端触发 watcher 事件  
 * 客户端回调 watcher  
+ 
 # zookeeper 数据同步流程  
 在zookeeper 中，主要依赖 ZAB 协议来实现分布式数据一致性。  
 ZAB 协议分为两部分：  
@@ -160,8 +165,10 @@ ZAB 协议的恢复模式使用了以下策略：
 
 -1. 服务器ID(myid)：编号越大在选举算法中权重越大  
 -2. 事务ID(zxid)：值越大说明数据越新，权重越大  
--3. 逻辑时钟(epoch-logicalclock)：同一轮投票过程中的逻辑时钟值是相同的，每投一次值会增加。  
-![leader 选举](img/leader选举.png)  
+-3. 逻辑时钟(epoch-logicalclock)：同一轮投票过程中的逻辑时钟值是相同的，每投一次值会增加。 
+
+![leader 选举](img/leader选举.png) 
+
 # zookeeper 分布式锁实现  
 
 排他锁，又被称为写锁或独占所。  
