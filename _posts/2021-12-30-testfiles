@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      (文章标题)
-subtitle:   (副标题)
-date:       2018-12-01
-author:     (作者名)
-header-img: img/the-first.png
-catalog:   true
+title:      测试文件
+subtitle:   一分钟掌握如何创建新的blog
+date:       2021-12-30
+author:     JM
+header-img: img/post-bg-miui6.jpg
+catalog: 	  true
 tags:
-    - 往事如烟
+    - 学习资料
 ---
 # 一级标题
 ## 二级标题
