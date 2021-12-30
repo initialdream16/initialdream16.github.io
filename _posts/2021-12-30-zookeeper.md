@@ -52,6 +52,7 @@ zookeeper 的三个端口作用：
 * 2181：对client端提供服务  
 * 2888：集群内机器通信使用  
 * 3888：选举 leader 使用  
+
 ## 数据模型 znode 结构  
 在 zookeeper 中，可以说 zookeeper 中的所有存储的数据是由 znode 组成的，节点也称为 znode，并以key/value形式存储数据。  
 整体结构类似于 linux 文件系统的模式以树形结构存储，其中根路径以 / 开头。  
