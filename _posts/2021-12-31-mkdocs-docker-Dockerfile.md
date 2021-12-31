@@ -58,7 +58,7 @@ docker images
 docker run -dit -p 9998:8000 mymy-mkdocs  
 ```  
 
-![search](img/3.png) 
+![search](https://initialdream16.github.io/img/3.png) 
 
 对 Dockerfile 文件进行说明的 docker 的基础命令进行说明，如下：  
 * <font color=red>FROM</font>  指定基础镜像。  
@@ -78,7 +78,7 @@ docker run -dit -p 9998:8000 mymy-mkdocs
 
 每日一图(图来源于网络)，哈哈。
   
-![fengjing](img/4.jpeg)  
+![fengjing](https://initialdream16.github.io/img/4.jpeg)  
 
   
 
