@@ -14,10 +14,10 @@ tags:
 
 插入的图片来源于网络。南禅寺为唐代遗存建筑。斗拱深远。远看建筑气势恢宏，很舒适。
 
-![image](https://github.com/initialdream16/initialdream16.github.io/blob/master/img/timg.jpg)
+![image](https://initialdream16.github.io/img/timg.jpg)
 
 
-![image](https://github.com/initialdream16/initialdream16.github.io/blob/master/img/2.jpg)
+![image](https://initialdream16.github.io/img/2.jpg)
 
 >秩秩斯干，幽幽南山。如竹苞矣，如松茂矣。兄及弟矣，式相好矣，无相犹矣。  
 >似续妣祖，筑室百堵，西南其户。爰居爰处，爰笑爰语。  
