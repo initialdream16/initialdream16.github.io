@@ -98,6 +98,10 @@ service-worker: true
 # 友情链接，请尽量不要删除，谢谢！
 friends: [
     {
+        title: "码云",
+        href: https://gitee.com/initialdream1659
+    },
+    {
         title: "星球国际语",
         href: "https://globien.gitee.io"
     },{
@@ -106,8 +110,5 @@ friends: [
     },{
         title: "知乎：人造国际语",
         href: "https://zhuanlan.zhihu.com/Artificial-International-Language"
-    },{
-        title: "码云",
-        href: https://gitee.com/initialdream1659
     }
 ]
