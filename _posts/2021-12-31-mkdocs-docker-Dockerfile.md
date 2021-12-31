@@ -61,10 +61,10 @@ docker run -dit -p 9998:8000 mymy-mkdocs
 ![search](img/3.png) 
 
 对 Dockerfile 文件进行说明的 docker 的基础命令进行说明，如下：  
-* <font color=red>**FROM**</font>  指定基础镜像。  
-* <font color=red>**WORKDIR**</font> 用于指定容器的一个目录，容器启动时执行的命令会在该目录下执行。部署 mkdocs 的路径需要编写正确(结合解压路径)，否则会出错 mkdocs.yml 找不到的。    
-* <font color=red>**ADD**</font> 拷贝宿主机文件至docker容器下的文件路径。  
-* 此外，还使用到 [<font color=red>*-v*</font>](https://blog.csdn.net/hnmpf/article/details/80924494) 、[<font color=red>*docker inspect*</font>](https://www.cnblogs.com/gcgc/p/10831711.html)、[<font color=red>*进入容器*</font>](https://blog.csdn.net/weixin_43448760/article/details/104427609)。  
+* <font color=red>FROM</font>  指定基础镜像。  
+* <font color=red>WORKDIR</font> 用于指定容器的一个目录，容器启动时执行的命令会在该目录下执行。部署 mkdocs 的路径需要编写正确(结合解压路径)，否则会出错 mkdocs.yml 找不到的。    
+* <font color=red>ADD</font> 拷贝宿主机文件至docker容器下的文件路径。  
+* 此外，还使用到 [<font color=red>-v</font>](https://blog.csdn.net/hnmpf/article/details/80924494) 、[<font color=red>docker inspect</font>](https://www.cnblogs.com/gcgc/p/10831711.html)、[<font color=red>进入容器</font>](https://blog.csdn.net/weixin_43448760/article/details/104427609)。  
 ## docker 指令  
 生成项目目录，  
 *`docker run -it --rm -v ~/docs:/docs squidfunk/mkdocs-material new my-project`*   
