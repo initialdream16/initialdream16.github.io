@@ -55,7 +55,7 @@ tags:
 ```
 
 ## 数据仓库的架构分层  
-![datawarehouse](img/datawarehouse.png)  
+![datawarehouse](https://initialdream16.github.io/img/datawarehouse.png)  
 通常情况下，数据仓库分为三层：源数据、数据仓库、数据应用。  
 标准上可以分为四层： ODS、DWD、DWS、ADS。 
  
@@ -91,10 +91,10 @@ tags:
 当所有维表都直接连接到"事实表"上时，整个图解就像星星一样，故称为星型模型。  
 星型架构是一种非正规化的结构，多维数据集的每一个维度都直接与事实表相连接，不存在渐变维度，所以数据有一定的冗余。 
  
-![xx](img/xxmodel.png)   
+![xx](https://initialdream16.github.io/img/xxmodel.png)   
 ### 雪花模型  
 当有一个或多个维表没有直接连接到事实表上，而是通过其他维表连接到事实表上时，且图解就像多个雪花连接在一起，故称雪花模型。 
-![xh](img/xhmodel.png) 
+![xh](https://initialdream16.github.io/img/xhmodel.png) 
  
 星型模型因为数据冗余所以许多查询不需要做外部的连接，因此一般情况下效率比雪花模型要高。  
 ### 星型模型与雪花模型对比  
