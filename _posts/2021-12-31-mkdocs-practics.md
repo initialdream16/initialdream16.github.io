@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      mkdocs-practics
+title:      mkdocs-practics1
 subtitle:   快速、简单、华丽的静态网站生成器,适用于构建项目文档
 date:       2021-12-31
 author:     果然
