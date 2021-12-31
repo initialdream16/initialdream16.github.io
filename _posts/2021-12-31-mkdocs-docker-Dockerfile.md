@@ -65,12 +65,14 @@ docker run -dit -p 9998:8000 mymy-mkdocs
 * <font color=red>WORKDIR</font> 用于指定容器的一个目录，容器启动时执行的命令会在该目录下执行。部署 mkdocs 的路径需要编写正确(结合解压路径)，否则会出错 mkdocs.yml 找不到的。    
 * <font color=red>ADD</font> 拷贝宿主机文件至docker容器下的文件路径。  
 * 此外，还使用到 [<font color=red>-v</font>](https://blog.csdn.net/hnmpf/article/details/80924494) 、[<font color=red>docker inspect</font>](https://www.cnblogs.com/gcgc/p/10831711.html)、[<font color=red>进入容器</font>](https://blog.csdn.net/weixin_43448760/article/details/104427609)。  
+
 ## docker 指令  
 生成项目目录，  
 *`docker run -it --rm -v ~/docs:/docs squidfunk/mkdocs-material new my-project`*   
 *`sudo chmod -R 777 /xxx/`*  
 运行起来，  
 *`docker run -it --name mkdocs --rm -v ~/docs:/docs -p 58000:8000 --workdir /docs/my-project squidfunk/mkdocs-material serve -a 0.0.0.0:8000`*  
+
 # 部署至 github  
 主要使用代码 *mkdocs gh-deploy* 。详细可见首页 - 其他的说明。
 
