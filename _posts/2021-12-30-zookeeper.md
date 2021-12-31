@@ -146,7 +146,7 @@ ZAB 协议分为两部分：
 * 消息广播  
 * 崩溃恢复  
 
-![消息广播](img/ZAB.png)  
+![消息广播](https://initialdream16.github.io/img/ZAB.png)  
 
 Zookeeper 使用单一的主进程 Leader 来接收和处理客户端所有事务请求，并采用 ZAB 协议的原子广播协议，将事务请求以 Proposal 提议广播到所有 Follower 节点，当集群中有过半的Follower 服务器进行正确的 ACK 反馈，那么Leader就会再次向所有的 Follower 服务器发送commit 消息，将此次提案进行提交。这个过程可以简称为 2pc 事务提交，整个流程可以参考下图，注意 Observer 节点只负责同步 Leader 数据，不参与 2PC 数据同步过程。  
 
@@ -167,7 +167,7 @@ ZAB 协议的恢复模式使用了以下策略：
 -2. 事务ID(zxid)：值越大说明数据越新，权重越大  
 -3. 逻辑时钟(epoch-logicalclock)：同一轮投票过程中的逻辑时钟值是相同的，每投一次值会增加。 
 
-![leader 选举](img/leader选举.png) 
+![leader 选举](https://initialdream16.github.io/img/leader选举.png) 
 
 # zookeeper 分布式锁实现  
 
