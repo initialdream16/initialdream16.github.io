@@ -69,4 +69,5 @@ public class SingletonDemo2{
 ## 参考资料  
 1. [java单例模式几种实现方式](https://www.cnblogs.com/ngy0217/p/9006716.html)  
 2. [Java设计模式（一）之单例模式](https://www.jianshu.com/p/3f5eb3e0b050)  
-3. [Java中用单例模式有什么好处?](https://www.cnblogs.com/tangxiao1996/p/7899393.html)
+3. [Java中用单例模式有什么好处?](https://www.cnblogs.com/tangxiao1996/p/7899393.html)  
+4. [单例](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319214514210)
