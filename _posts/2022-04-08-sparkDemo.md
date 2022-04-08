@@ -72,9 +72,9 @@ val result = dataDF.map(x => {
 # 分析原因  
 通过上述优化方法，注意到sparksql DSL 解析速度较dataframe map操作慢，这是为什么呢？尝试搜索答案。  
 [Spark functions vs UDF performance?](https://stackoverflow.com/questions/38296609/spark-functions-vs-udf-performance)中提到：  
-```
-When executing Spark-SQL native functions, the data will stays in tungsten backend. However, in Spark UDF scenario, the data will be moved out from tungsten into JVM (Scala scenario) or JVM and Python Process (Python) to do the actual process, and then move back into tungsten.
-```  
+
+When executing Spark-SQL native functions, the data will stays in tungsten backend. However, in Spark UDF scenario, the data will be moved out from tungsten into JVM (Scala scenario) or JVM and Python Process (Python) to do the actual process, and then move back into tungsten.  
+
 综上所述，首选使用sparksql以及spark sql nativate functions。  
 
   
