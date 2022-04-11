@@ -73,13 +73,19 @@ val result = dataDF.map(x => {
 通过上述优化方法，注意到sparksql DSL（UDF用户自定义函数） 解析速度较dataframe map操作慢，这是为什么呢？尝试搜索答案。  
 [Spark functions vs UDF performance?](https://stackoverflow.com/questions/38296609/spark-functions-vs-udf-performance)中提到：  
 
-When executing Spark-SQL native functions, the data will stays in tungsten backend. However, in Spark UDF scenario, the data will be moved out from tungsten into JVM (Scala scenario) or JVM and Python Process (Python) to do the actual process, and then move back into tungsten.   
+When executing Spark-SQL native functions, the data will stays in <font color=red>tungsten backend</font>. However, in Spark UDF scenario, the data will be moved out from tungsten into JVM (Scala scenario) or JVM and Python Process (Python) to do the actual process, and then move back into tungsten.   
 
 Unlike UDFs, Spark SQL functions operate directly on JVM and typically are well integrated with both Catalyst and Tungsten. It means these can be optimized in the execution plan and most of the time can benefit from codgen and other Tungsten optimizations. Moreover these can operate on data in its "native" representation.  
 
 (pyspark)The main reasons are already enumerated above and can be reduced to a simple fact that Spark DataFrame is natively a JVM structure and standard access methods are implemented by simple calls to Java API. UDF from the other hand are implemented in Python and require moving data back and forth.  
 
 综上所述，首选使用sparksql以及spark sql nativate functions。  
+* spark 内存管理之Tungsten  
+Tungsten 号称spark有史以来最大改动，其致力于提升spark程序对内存和CPU的利用率，使性能达到硬件的极限，主要工作包括以下三个方面：  
+1. Memory management and Binary Processing: off-heap管理内存，降低对象的开销和消除JVM GC带来的延迟；  
+2. Cache-aware computation: 优化存储，提升CPU L1/L2/L3 缓存命中率；  
+3. Code generationL 优化 spark SQL的代码生成部分，提升CPU利用率。  
+ 
 
   
   
