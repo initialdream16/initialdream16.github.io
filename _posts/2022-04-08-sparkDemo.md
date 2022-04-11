@@ -80,7 +80,8 @@ Unlike UDFs, Spark SQL functions operate directly on JVM and typically are well 
 (pyspark)The main reasons are already enumerated above and can be reduced to a simple fact that Spark DataFrame is natively a JVM structure and standard access methods are implemented by simple calls to Java API. UDF from the other hand are implemented in Python and require moving data back and forth.  
 
 综上所述，首选使用sparksql以及spark sql nativate functions。  
-* spark 内存管理之Tungsten  
+
+**spark 内存管理之Tungsten**    
 Tungsten 号称spark有史以来最大改动，其致力于提升spark程序对内存和CPU的利用率，使性能达到硬件的极限，主要工作包括以下三个方面：  
 1. Memory management and Binary Processing: off-heap管理内存，降低对象的开销和消除JVM GC带来的延迟；  
 2. Cache-aware computation: 优化存储，提升CPU L1/L2/L3 缓存命中率；  
