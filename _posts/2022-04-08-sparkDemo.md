@@ -87,6 +87,7 @@ Tungsten 号称spark有史以来最大改动，其致力于提升spark程序对�
 * Memory management and Binary Processing: off-heap管理内存，降低对象的开销和消除JVM GC带来的延迟；  
 * Cache-aware computation: 优化存储，提升CPU L1/L2/L3 缓存命中率；  
 * Code generationL 优化 spark SQL的代码生成部分，提升CPU利用率。  
+  
 ## spark 中JVM的不足  
 运行在JVM之上的程序，依赖JVM管理内存及回收垃圾，但会存在两个显著问题：Java 对象空间开销大；GC带来的时间开销。  
 
