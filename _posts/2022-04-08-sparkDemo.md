@@ -82,11 +82,14 @@ Unlike UDFs, Spark SQL functions operate directly on JVM and typically are well 
 综上所述，首选使用sparksql以及spark sql nativate functions。  
 
 **spark 内存管理之Tungsten**    
-Tungsten 号称spark有史以来最大改动，其致力于提升spark程序对内存和CPU的利用率，使性能达到硬件的极限，主要工作包括以下三个方面：  
+Tungsten 号称spark有史以来最大改动，其致力于提升spark程序对内存和CPU的利用率，使性能达到硬件的极限，主要工作包括以下三方面：  
 
-1. Memory management and Binary Processing: off-heap管理内存，降低对象的开销和消除JVM GC带来的延迟；  
-2. Cache-aware computation: 优化存储，提升CPU L1/L2/L3 缓存命中率；  
-3. Code generationL 优化 spark SQL的代码生成部分，提升CPU利用率。  
+* Memory management and Binary Processing: off-heap管理内存，降低对象的开销和消除JVM GC带来的延迟；  
+* Cache-aware computation: 优化存储，提升CPU L1/L2/L3 缓存命中率；  
+* Code generationL 优化 spark SQL的代码生成部分，提升CPU利用率。  
+## spark 中JVM的不足  
+运行在JVM之上的程序，依赖JVM管理内存及回收垃圾，但会存在两个显著问题：Java 对象空间开销大；GC带来的时间开销。  
+
  
 
   
