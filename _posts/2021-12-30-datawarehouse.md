@@ -122,3 +122,4 @@ tags:
 -1. [数据仓库理论](https://www.cnblogs.com/frankdeng/p/9462754.html#top)  
 -2. [数据仓库的基础架构](https://zhuanlan.zhihu.com/p/88467971)  
 -3. [爱奇艺数据仓库平台和服务建设实践](https://www.infoq.cn/article/fquht58zdgsdemb5lufz)  
+-4. [8000字详解数据仓库建设中的数据建模方法](https://baijiahao.baidu.com/s?id=1707484923324108803&wfr=spider&for=pc)  
