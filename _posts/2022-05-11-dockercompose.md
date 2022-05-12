@@ -25,14 +25,15 @@ Docker从1.13.x版本开始，版本分为企业版EE和社区版CE，版本号�
 执行curl命令后，它会将docker-compose放入*/usr/local/bin*，创建一个软链接*sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose*。  
 ## [docker-compose 文件结构和示例](https://blog.csdn.net/pushiqiang/article/details/78682323)      
 docker-compose.yml  
-
-<table><tr><td bgcolor=yellow>version："3"
+```
+version："3"
 services:
 	...
 networks:
 	...
 volumes:
-	...</td></tr></table>     
+	... 
+```  
 **示例：**通过docker-compose构建一个在docker中运行的基于python flask框架的web应用。  
 step1：定义Python应用
 * 创建工程目录  
