@@ -44,6 +44,14 @@ step1：定义Python应用
 * 创建Python需求文件 requirements.txt  
   
 step2：创建容器的Dockerfile文件  
+```
+FROM python3.7
+COPY src/ /opt/src
+WORKDIR /opt/src
+
+RUN pip install -r requirements.txt
+CMD ["pyhton", "app.py"]
+```  
 step3：定义docker-compose脚本  
 step4：使用Compose构建并运行您的应用程序  
 
