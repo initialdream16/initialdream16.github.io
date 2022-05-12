@@ -45,13 +45,17 @@ step1：定义Python应用
   
 step2：创建容器的Dockerfile文件  
 ```
-FROM python3.7
-COPY src/ /opt/src
-WORKDIR /opt/src
+FROM python3.7           // 基础镜像，从基础镜像开始构建
+COPY src/ /opt/src       // 将文件拷贝至镜像中，类似ADD
+WORKDIR /opt/src         // 镜像的工作目录
 
-RUN pip install -r requirements.txt
-CMD ["pyhton", "app.py"]
+RUN pip install -r requirements.txt      //镜像构建的时候需要运行的命令
+CMD ["pyhton", "app.py"]                 // 指定该容器启动的时候要运行的命令，只有最后一个会生效，可被替代
 ```  
+为了验证，查看镜像内部的目录结构，[原理：docker上存在的是镜像，镜像运行起来之后就叫做容器。要想查看镜像里面都有什么，那就先要让镜像运行起来，可以进入容器内部查看。](https://blog.csdn.net/weixin_43448760/article/details/104427609)  
+
+![docker install test](https://initialdream16.github.io/img/dockerimagetree.png)   
+
 step3：定义docker-compose脚本  
 step4：使用Compose构建并运行您的应用程序  
 
@@ -68,6 +72,17 @@ step6：重新构建和运行应用程序
 最后，展示下status：  
 
 ![docker install test](https://initialdream16.github.io/img/status.png)  
+
+## [DockerFile 编写方法](https://zhuanlan.zhihu.com/p/423148921)  
+
+```
+// 使用 *docker build* 构建镜像，并将镜像指定为 mycentos:0.1 .
+docker build -f mydockerfile-centos -t mycentos:0.1 .  
+// 构建完成后，启动容易  
+docker run -i -t mycentos:0.1 . 
+```
+* [docker run 参数](https://m.runoob.com/docker/docker-run-command.html)  
+* [docker build 参数](https://www.runoob.com/docker/docker-build-command.html)
 
 
 
