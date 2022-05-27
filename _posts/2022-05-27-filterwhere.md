@@ -11,13 +11,13 @@ tags:
 ---  
 
 ## [select where or filtering?](https://stackoverflow.com/questions/38867472/spark-select-where-or-filtering)  
-<font color=red>**answer 1：**</font>        
+<font color=red>answer 1：</font>        
 As Yaron mentioned, there isnot any difference between **where** and **filter**.  
 **filter** is an overload method that takes a column or string argument. The performance is the same, <font color=red>regardless of the syntax you use.</font>  
 we can use **explain()** to see that all the difference filtering syntaxes generate <font color=red>the same Physical Plan</font>.  
 
 The syntax doesnot change how filters are executed under the hood,but the file format/database that a query is executed on does. Spark will execute the same query differently on Postgres(predicte pushdown filtering is supported), Parquet(column pruning), and CSV files.    
-<font color=red>**answer 2：**</font>  
+<font color=red>answer 2：</font>  
 According to **spark documentation** "where() is an alias for filter()".  
 **filter(condition)** Filters rows using the given condition. **where()** is an alias for **filter()**.  
 
