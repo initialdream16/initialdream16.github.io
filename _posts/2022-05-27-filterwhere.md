@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      spark - select where or filtering? wirhColumn 
+title:      spark - select where or filtering? withColumn 
 subtitle:   用于过滤/用于添加新字段、字段重命名、修改字段类型  
 date:       2022-05-27
 author:     果然
