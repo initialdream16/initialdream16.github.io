@@ -69,7 +69,39 @@ val emp = spark.table("gree_screendisplay_hr.hr_emp_info").filter(dateFilterCont
         when(col("entrydate")>=col("date") or(col("leavedate")<=col("date")),true)
         otherwise(col("isleave"))
 
+```  
+## [Spark DataFrame withColumn](https://sparkbyexamples.com/spark/spark-dataframe-withcolumn/)  
+Spark **withColumn()** is a DataFrame function that is used to add a new column to DataFrame, change the value of an existing column, convert the dataType of a column, derive a new column from an existing column.  
+* Spark withColumn() Syntax and Usage  
+Spark withColumn is a transformation function of DataFrame that is used to manipulate the column values of all rows or selected rows on DataFrame.  
+**withColumn** function returns a new spark dataframe after performing operations.  
+* Add a new column to DataFrame  
 ```
+// lit() function is used to add a constant value to a DataFrame column.
+import org.apache.spark.sql.functions.lit
+df.withColumn("country", lit("USA"))
+df.withColumn("country", lit("USA")).withColumn("anotherColumn", lit("anotherColumn"))
+```  
+> The above approach is fine if you are manipulating few columns, but you wanted to add or update multiple columns, do not use the chaining withColumn() as it leads to performance issues, use select() to update multiple columns instead.  
+* Change value of an Existing Column  
+```
+import org.apache.spark.sql.functions.col
+df.withColumn("salary", col("salary")*100)
+```  
+* Derive new Column from an Existing column  
+```
+df.withColumn("copiedColumn", col("salary")*-1)
+```  
+* Change column Data Type  
+```
+df.withColumn("salary", col("salary").cast("Integer"))
+```  
+* Add, Replace,or Update multiple columns  
+```
+df2.createOrReplaceTempView("PERSON")
+spark.sql("SELECT salary*100 as salary, salary*-1 as CopiedColumn, 'USA' as country FROM PERSON").show()
+```  
+> When you wanted to add, replace or update multiple columns in Spark DataFrame, it is not suggestible to chain withColumn() function as it leads into performance issue and recommend to use select() after creating a temporary view on DataFrame.
 ## [Spark withColumn陷阱](https://blog.csdn.net/lsshlsw/article/details/105802839)  
 withColumn/withColumnRenamed 是spark 中常见的 API，可以用于添加新字段、字段重命名、修改字段类型，但当列的数量增加时，会出现严重的性能下降现象。  
 
