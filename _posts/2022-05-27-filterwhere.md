@@ -101,7 +101,36 @@ df.withColumn("salary", col("salary").cast("Integer"))
 df2.createOrReplaceTempView("PERSON")
 spark.sql("SELECT salary*100 as salary, salary*-1 as CopiedColumn, 'USA' as country FROM PERSON").show()
 ```  
-> When you wanted to add, replace or update multiple columns in Spark DataFrame, it is not suggestible to chain withColumn() function as it leads into performance issue and recommend to use select() after creating a temporary view on DataFrame.
+> When you wanted to add, replace or update multiple columns in Spark DataFrame, it is not suggestible to chain withColumn() function as it leads into performance issue and recommend to use select() after creating a temporary view on DataFrame.  
+* Rename column Name  
+```
+df.withColumn("gender", "sex")
+```  
+* Drop a column  
+```
+df.drop("CopiedColumn")
+```  
+* Split column into Multiple Columns  
+> Though this example does not use withColumn() function, I still feel like it is good to explain on splitting one DataFrame column to multiple columns using Spark map() transformation function.  
+```
+import spark.implicits._
+
+val columns = Seq("name","address")
+val data = Seq(("Robert, Smith", "1 Main st, Newark, NJ, 92537"),
+             ("Maria, Garcia","3456 Walnut st, Newark, NJ, 94732"))
+var dfFromData = spark.createDataFrame(data).toDF(columns:_*)
+dfFromData.printSchema()
+
+val newDF = dfFromData.map(f=>{
+val nameSplit = f.getAs[String](0).split(",")
+val addSplit = f.getAs[String](1).split(",")
+      (nameSplit(0),nameSplit(1),addSplit(0),addSplit(1),addSplit(2),addSplit(3))
+    })
+val finalDF = newDF.toDF("First Name","Last Name",
+             "Address Line1","City","State","zipCode")
+finalDF.printSchema()
+finalDF.show(false)
+```
 ## [Spark withColumn陷阱](https://blog.csdn.net/lsshlsw/article/details/105802839)  
 withColumn/withColumnRenamed 是spark 中常见的 API，可以用于添加新字段、字段重命名、修改字段类型，但当列的数量增加时，会出现严重的性能下降现象。  
 
