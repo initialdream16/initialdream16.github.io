@@ -110,10 +110,9 @@ df.withColumn("gender", "sex")
 ```
 df.drop("CopiedColumn")
 ```  
-* Split column into Multiple Columns  
-```
+* Split column into Multiple Columns    
+```scala
 import spark.implicits._
-
 val columns = Seq("name","address")
 val data = Seq(("Robert, Smith", "1 Main st, Newark, NJ, 92537"),
              ("Maria, Garcia","3456 Walnut st, Newark, NJ, 94732"))
@@ -130,7 +129,7 @@ val finalDF = newDF.toDF("First Name","Last Name",
 finalDF.printSchema()
 finalDF.show(false)
 ```  
-> Though this example does not use withColumn() function, I still feel like it is good to explain on splitting one DataFrame column to multiple columns using Spark map() transformation function.  
+> Though this example does not use withColumn() function, I still feel like it is good to explain on splitting one DataFrame column to multiple columns using Spark map() transformation function.      
 ## [Spark withColumn陷阱](https://blog.csdn.net/lsshlsw/article/details/105802839)  
 withColumn/withColumnRenamed 是spark 中常见的 API，可以用于添加新字段、字段重命名、修改字段类型，但当列的数量增加时，会出现严重的性能下降现象。  
 
