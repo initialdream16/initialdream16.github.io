@@ -82,6 +82,7 @@ import org.apache.spark.sql.functions.lit
 df.withColumn("country", lit("USA"))
 df.withColumn("country", lit("USA")).withColumn("anotherColumn", lit("anotherColumn"))
 ```  
+
 > The above approach is fine if you are manipulating few columns, but you wanted to add or update multiple columns, do not use the chaining withColumn() as it leads to performance issues, use select() to update multiple columns instead.  
 * Change value of an Existing Column  
 ```
@@ -101,6 +102,7 @@ df.withColumn("salary", col("salary").cast("Integer"))
 df2.createOrReplaceTempView("PERSON")
 spark.sql("SELECT salary*100 as salary, salary*-1 as CopiedColumn, 'USA' as country FROM PERSON").show()
 ```  
+
 > When you wanted to add, replace or update multiple columns in Spark DataFrame, it is not suggestible to chain withColumn() function as it leads into performance issue and recommend to use select() after creating a temporary view on DataFrame.  
 * Rename column Name  
 ```
