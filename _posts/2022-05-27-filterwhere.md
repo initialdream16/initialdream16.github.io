@@ -110,14 +110,14 @@ df.withColumn("gender", "sex")
 ```
 df.drop("CopiedColumn")
 ```  
-* Split column into Multiple Columns  
+
+* Split column into Multiple Columns    
 ```
 val columns = Seq("name","address")
 val data = Seq(("Robert, Smith", "1 Main st, Newark, NJ, 92537"),
              ("Maria, Garcia","3456 Walnut st, Newark, NJ, 94732"))
 var dfFromData = spark.createDataFrame(data).toDF(columns:_*)
 dfFromData.printSchema()
-
 val newDF = dfFromData.map(f=>{
 val nameSplit = f.getAs[String](0).split(",")
 val addSplit = f.getAs[String](1).split(",")
@@ -127,6 +127,7 @@ val finalDF = newDF.toDF("First Name","Last Name","Address Line1","City","State"
 finalDF.printSchema()
 finalDF.show(false)
 ```  
+
 > Though this example doesn’t use withColumn() function, I still feel like it’s good to explain on splitting one DataFrame column to multiple columns using Spark map() transformation function.  
    
 ## [Spark withColumn陷阱](https://blog.csdn.net/lsshlsw/article/details/105802839)  
