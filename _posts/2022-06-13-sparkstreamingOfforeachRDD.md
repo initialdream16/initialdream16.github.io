@@ -10,7 +10,7 @@ tags:
     - 大数据组件技术选型
 ---  
 [sparkStreaming 之 foreachRDD](https://blog.csdn.net/legotime/article/details/51836039)  
-DStream 中的 foreach 是一个非常强大的函数，它允许你将数据发给外部系统。  
+DStream 中的 foreachRDD 是一个非常强大的函数，它允许你将数据发给外部系统。  
 
 ```
 dstream.foreachRDD{rdd => 
