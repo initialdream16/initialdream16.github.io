@@ -14,6 +14,7 @@ tags:
 在实际测试中：  
 * [spark.default.parallelism](https://blog.csdn.net/Jack_Roy/article/details/89639784) 只有在处理RDD时才会起作用，对spark SQL无效。  
 * spark.sql.shuffle.partitions则是对spark SQL专有的设置  
+
 因此，在提交作业时：  
 ```
 spark-submit --conf spark.sql.shuffle.partitions=20 --conf spark.default.parallelism=20
@@ -25,14 +26,14 @@ spark-submit --conf spark.sql.shuffle.partitions=20 --conf spark.default.paralle
 |c3p0|开放的源代码的JDBC连接池|
 |DBCP|依赖Jakarta commons-pool对象池机制的数据库连接池 |
 |druid|阿里出品，淘宝与支付宝专用的数据库连接池，它还包括了一个ProxyDriver、一系列内置的JDBC组件库，一个SQL Parser。支持所有JDBC兼容的数据库|  
+
 ## [数据库连接池的作用以及配置](https://blog.csdn.net/weixin_45627031/article/details/106535010)  
 连接池是创建和管理多个连接的一种技术，这些连接可被需要使用它们的任何线程使用。  
 主要优点有：  
 (1) 缩短了连接创建时间  
 (2) 简化的编程模型  
 (3) 受控的资源使用  
-即节约资源，用户访问高效。  
-<font color=red>**(???)**这里能否节约资源，使用数据连接池的方法对数据解析处理。</font>     
+即节约资源，用户访问高效；这里能否节约资源，使用数据连接池的方法对数据解析处理。       
 ## [spark jdbc 参数解读与优化](https://yerias.github.io/2020/11/05/spark/36/#%E7%9B%AE%E5%BD%95)  
 sparksql 还包括一个可以使用JDBC从其他数据库读取数据的数据源。与使用jdbcRDD相比，应优先使用此功能。这是因为结果作为 dataframe返回，它们可以在sparksql中轻松处理或与其他数据源连接。  
 **（???）** 很多人在spark中使用默认提供的jdbc方法时，在数据库数据较大时经常发现任务 hang 住，其实是单线程任务过重导致，这时候需要提高读取的并发度。   
